@@ -13,6 +13,17 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 21)),
+        mySqlOptions => mySqlOptions.ServerVersionAutoDetect()
+    ));
+builder.Services.AddAuthorization();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -23,5 +34,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.useAuthentication(); 
 
 app.Run();

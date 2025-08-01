@@ -41,3 +41,4 @@
 /Users/edithriostorres/Desktop/Inter/task4/LoginApp/obj/Debug/net8.0/LoginApp.pdb
 /Users/edithriostorres/Desktop/Inter/task4/LoginApp/obj/Debug/net8.0/LoginApp.genruntimeconfig.cache
 /Users/edithriostorres/Desktop/Inter/task4/LoginApp/obj/Debug/net8.0/ref/LoginApp.dll
+/Users/edithriostorres/Desktop/Inter/task4/LoginApp/obj/Debug/net8.0/LoginApp.sourcelink.json
