@@ -22,45 +22,30 @@ public class Fair {
         }
     }
 
-    public FairRandomResult generateFairNumber(int min, int max) throws NoSuchAlgorithmException, InvalidKeyException {
-        byte[] secretKeyBytes = generateSecureRandomBytes(32);
-        String secretKeyHex = HexFormat.of().formatHex(secretKeyBytes);
-
-        int computerNumber = generateSecureRandomInt(min, max);
-
-        String hmac = calculateHmac(secretKeyHex, Integer.toString(computerNumber));
-
-        return new FairRandomResult(computerNumber, secretKeyHex, hmac);
-    }
-
-    private byte[] generateSecureRandomBytes(int size) {
-        byte[] bytes = new byte[size];
-        new SecureRandom().nextBytes(bytes);
-        return bytes;
-    }
-
-    private int generateSecureRandomInt(int min, int max) {
-        SecureRandom secureRandom = new SecureRandom();
-        int range = max - min + 1;
-
-        int bits, val;
-        do {
-            bits = secureRandom.nextInt();
-            val = bits % range;
-        } while (val < 0 || val >= range);
-        return min + val;
-    }
-
-    private String calculateHmac(String secretKeyHex, String message)
+    public FairRandomResult generateFairNumber(int min, int max)
             throws NoSuchAlgorithmException, InvalidKeyException {
-        byte[] keyBytes = HexFormat.of().parseHex(secretKeyHex);
+
+        byte[] keyBytes = new byte[32];
+        new SecureRandom().nextBytes(keyBytes);
+        String key = HexFormat.of().formatHex(keyBytes);
+
+        int range = max - min + 1;
+        int computerNumber = new SecureRandom().nextInt(range) + min;
+
+        String hmac = calculateHmac(key, Integer.toString(computerNumber));
+
+        return new FairRandomResult(computerNumber, key, hmac);
+    }
+
+    private String calculateHmac(String key, String message)
+            throws NoSuchAlgorithmException, InvalidKeyException {
+        byte[] keyBytes = HexFormat.of().parseHex(key);
 
         Mac hmac = Mac.getInstance(HMAC_ALGORITHM);
         SecretKeySpec keySpec = new SecretKeySpec(keyBytes, HMAC_ALGORITHM);
         hmac.init(keySpec);
 
         byte[] hmacBytes = hmac.doFinal(message.getBytes());
-
         return HexFormat.of().formatHex(hmacBytes);
     }
 
