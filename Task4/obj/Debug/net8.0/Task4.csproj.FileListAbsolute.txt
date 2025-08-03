@@ -135,9 +135,7 @@
 /Users/edithriostorres/Desktop/Inter/Task4/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Task4.props
 /Users/edithriostorres/Desktop/Inter/Task4/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Task4.props
 /Users/edithriostorres/Desktop/Inter/Task4/obj/Debug/net8.0/staticwebassets.pack.json
-/Users/edithriostorres/Desktop/Inter/Task4/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/edithriostorres/Desktop/Inter/Task4/obj/Debug/net8.0/scopedcss/bundle/Task4.styles.css
-/Users/edithriostorres/Desktop/Inter/Task4/obj/Debug/net8.0/scopedcss/projectbundle/Task4.bundle.scp.css
 /Users/edithriostorres/Desktop/Inter/Task4/obj/Debug/net8.0/Task4.csproj.Up2Date
 /Users/edithriostorres/Desktop/Inter/Task4/obj/Debug/net8.0/Task4.dll
 /Users/edithriostorres/Desktop/Inter/Task4/obj/Debug/net8.0/refint/Task4.dll

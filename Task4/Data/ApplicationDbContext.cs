@@ -11,7 +11,7 @@ namespace Task4.Data
         {
         }
 
-        public DbSet<User> AppUsers { get; set; } // Cambiado de Users a AppUsers
+        public DbSet<User> AppUsers { get; set; } 
 
        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
